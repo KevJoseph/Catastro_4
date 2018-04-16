@@ -10,7 +10,7 @@ namespace Catastro_4.Enity
     {
         private string codigo { get; set; }
         private string nombre { get; set; }
-        private string apellido { get; set }
+        private string apellido { get; set; }
         public Propietario() { }
 
         public Propietario(string codigo, string nombre, string apellido)
