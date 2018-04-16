@@ -8,6 +8,17 @@ namespace Catastro_4.Enity
 {
     class Propietario
     {
+        private string codigo { get; set; }
+        private string nombre { get; set; }
+        private string apellido { get; set }
+        public Propietario() { }
+
+        public Propietario(string codigo, string nombre, string apellido)
+        {
+            this.codigo = codigo;
+            this.nombre = nombre;
+            this.apellido = apellido;
+        }
         static string Main(string[] args)
         {
             // Display the number of command line arguments:
