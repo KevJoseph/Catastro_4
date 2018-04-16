@@ -18,16 +18,18 @@ namespace Catastro_4
             InitializeComponent();
         }
 
-<<<<<<< HEAD
+
         private void button1_Click(object sender, EventArgs e)
         {
-           
-=======
+
+        }
         private void Form1_Load(object sender, EventArgs e)
         {
             BaseDatos bd = new BaseDatos();
             bd.open();
->>>>>>> 79c16d721ce9aa29d2c8f2241783df40bdc75f69
+
         }
+
+
     }
 }
