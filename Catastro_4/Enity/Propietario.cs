@@ -14,6 +14,9 @@ namespace Catastro_4.Enity
             Console.WriteLine("Hola Mundo");
             Console.WriteLine("Sadasd");
             Console.WriteLine("Hola Juan___dem0000");
+            Console.WriteLine("Hola Juan___dem0000");
+            Console.WriteLine("Hola Juan___dem0000");
+
             return "";
         }
 
