@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Catastro_4.Basedatos
 {
@@ -20,16 +21,16 @@ namespace Catastro_4.Basedatos
             this.cadena = "Data Source="+this.servidor+";Initial Catalog="+this.data_base+"; Integrated Security=True";
         }
 
-        public void Open()
+        public void open()
         {
             try
             {
                 conexion.Open();
-                Console.WriteLine("Conexion abierta con la base de datos.");
+                MessageBox.Show("Conexion abierta con la base de datos.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al conectar con la base de datos.");
+                MessageBox.Show("Error: "+ex);
             }
 
         }
