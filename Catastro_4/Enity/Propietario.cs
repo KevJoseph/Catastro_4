@@ -19,19 +19,6 @@ namespace Catastro_4.Enity
             this.nombre = nombre;
             this.apellido = apellido;
         }
-        static string Main(string[] args)
-        {
-            // Display the number of command line arguments:
-            Console.WriteLine("Hola Mundo");
-            Console.WriteLine("Sadasd");
-            Console.WriteLine("Hola Juan___dem0000");
-            Console.WriteLine("Hola Juan___dem0000");
-            Console.WriteLine("Hola Juan___dem0000");
-
-            Console.WriteLine("Hola Kevin :D");
-
-            return "";
-        }
 
     }
 
