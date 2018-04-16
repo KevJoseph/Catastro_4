@@ -1,0 +1,12 @@
+create database catastro_Demo;
+use catastro_Demo;
+
+create table Propietarios(
+codigo varchar(8) primary key,
+nombre varchar(100),
+apellido varchar(100)
+);
+
+insert into Propietarios values('001','Kevin','Ramos');
+insert into Propietarios values('002','Juan','Quiroz');
+
