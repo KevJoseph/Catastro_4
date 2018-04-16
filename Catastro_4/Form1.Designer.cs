@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+<<<<<<< HEAD
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
@@ -95,10 +96,15 @@
             this.label3.TabIndex = 7;
             this.label3.Text = "Apellido:";
             // 
+=======
+            this.SuspendLayout();
+            // 
+>>>>>>> 79c16d721ce9aa29d2c8f2241783df40bdc75f69
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+<<<<<<< HEAD
             this.ClientSize = new System.Drawing.Size(284, 261);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -111,6 +117,13 @@
             this.Text = "git ";
             this.ResumeLayout(false);
             this.PerformLayout();
+=======
+            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.Name = "Form1";
+            this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.ResumeLayout(false);
+>>>>>>> 79c16d721ce9aa29d2c8f2241783df40bdc75f69
 
         }
 

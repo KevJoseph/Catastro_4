@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Catastro_4.Basedatos
 {
@@ -12,24 +13,26 @@ namespace Catastro_4.Basedatos
         // coloca tus datos de tu equipo ( que va actuar como servidor)
         private string servidor = "Informatica\\SQLEXPRESS";
         private string data_base = "catastro_Demo";
-        private string cadena;
-        public SqlConnection conexion = new SqlConnection();
+        private string cadena="";
+        public SqlConnection conexion;
 
         public BaseDatos()
         {
-            this.cadena = "Data Source="+this.servidor+";Initial Catalog="+this.data_base+"; Integrated Security=True";
+            cadena = "Data Source="+this.servidor+";Initial Catalog="+this.data_base+ "; Integrated Security=True; UID=vek-PC;PWD=qwerty";
+            conexion = new SqlConnection(cadena);
         }
 
-        public void Open()
+        public void open()
         {
+            
             try
             {
                 conexion.Open();
-                Console.WriteLine("Conexion abierta con la base de datos.");
+                MessageBox.Show("Conexion abierta con la base de datos.");
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al conectar con la base de datos.");
+                MessageBox.Show("Error: "+ex);
             }
 
         }
