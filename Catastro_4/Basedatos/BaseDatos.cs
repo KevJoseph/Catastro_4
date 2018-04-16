@@ -18,7 +18,7 @@ namespace Catastro_4.Basedatos
 
         public BaseDatos()
         {
-            cadena = "Data Source="+this.servidor+";Initial Catalog="+this.data_base+ "; Integrated Security=True; UID=vek-PC;PWD=qwerty";
+            cadena = "Data Source= WIN10FALLCREATO;" + this.servidor+";Initial Catalog="+this.data_base+ "; Integrated Security=True; UID=vek-PC;PWD=qwerty";
             conexion = new SqlConnection(cadena);
         }
 
