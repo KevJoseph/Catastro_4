@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Catastro_4.Model
 {
-    class ModelCliente
+    class ModelPropietario
     {
     }
 }

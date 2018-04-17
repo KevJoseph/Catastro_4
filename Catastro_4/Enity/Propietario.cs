@@ -9,9 +9,13 @@ namespace Catastro_4.Enity
 {
     class Propietario
     {
-        private string codigo { get; set; }
-        private string nombre { get; set; }
-        private string apellido { get; set; }
+        public string codigo
+        {
+            get { return codigo; }
+            set { codigo = value; }
+        }
+        public string nombre { get; set; }
+        public string apellido { get; set; }
         public Propietario() { }
 
         public Propietario(string codigo, string nombre, string apellido)
@@ -21,6 +25,6 @@ namespace Catastro_4.Enity
             this.apellido = apellido;
         }
 
-    }
-
+    }    
+    
 }
