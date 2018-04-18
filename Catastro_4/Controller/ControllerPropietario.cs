@@ -10,14 +10,14 @@ namespace Catastro_4.Controller
 {
     class ControllerPropietario
     {
-        Propietario p = new Propietario();
+        
        
         public ControllerPropietario()
         {
       
         }
         
-        public void select()
+        public void select(Propietario p)
         {
            
         }

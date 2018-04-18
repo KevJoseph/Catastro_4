@@ -1,4 +1,5 @@
 ﻿using Catastro_4.Basedatos;
+using Catastro_4.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -25,11 +26,11 @@ namespace Catastro_4
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            BaseDatos bd = new BaseDatos();
-            bd.open();
+            ModelPropietario mp = new ModelPropietario();
+            mp.SelectPropietario();
 
         }
-
+        
 
     }
 }

@@ -18,7 +18,7 @@ namespace Catastro_4.Basedatos
 
         public BaseDatos()
         {
-            cadena = "Data Source= WIN10FALLCREATO;" + this.servidor+";Initial Catalog="+this.data_base+ "; Integrated Security=True; UID=vek-PC;PWD=qwerty";
+            cadena = "Data Source=" + this.servidor+";Initial Catalog="+this.data_base+ "; Integrated Security=True; UID=vek-PC;PWD=qwerty";
             conexion = new SqlConnection(cadena);
         }
 
@@ -28,18 +28,29 @@ namespace Catastro_4.Basedatos
             try
             {
                 conexion.Open();
+                
                 MessageBox.Show("Conexion abierta con la base de datos.");
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error: "+ex);
+               
             }
 
         }
 
         public void close()
         {
-            conexion.Close();
+            this.conexion.Close();
+        }
+
+        public string getSource()
+        {
+            return this.cadena;
+        }
+        public SqlConnection con()
+        {
+            return this.conexion;
         }
     }
 }
