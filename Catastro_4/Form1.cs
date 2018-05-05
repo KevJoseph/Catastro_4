@@ -22,6 +22,9 @@ namespace Catastro_4
             bd.conexion.Open();
             
             SqlCommand cmd = bd.conexion.CreateCommand();
+           
+
+
 
             cmd.CommandType = CommandType.Text;
             cmd.CommandText = "SELECT nombre, apellido, numFicha, CodCont, coopre, TipHab, NomHab, RUC, Sector, Mz, Lt FROM dbo.Propietarios WHERE codigo like ('" + txtcodigo.Text + "%')";
@@ -42,8 +45,43 @@ namespace Catastro_4
                 txtSector.Text = leer["Sector"].ToString();
                 txtMz.Text = leer["Mz"].ToString();
                 txtLt.Text = leer["Lt"].ToString();
+                
+                
+                //dataGridView1.Rows.Add(leer[0].ToString(), leer[1].ToString());
+                
             }
+            bd.conexion.Close();
+            bd.conexion.Open();
+            SqlCommand cmd2 = bd.conexion.CreateCommand();
+            cmd2.CommandType = CommandType.Text;
+            cmd2.CommandText = "SELECT nAREDECCON,nAREVERCON FROM dbo.Propietarios WHERE codigo like ('" + txtcodigo.Text + "%')";
+            cmd2.ExecuteNonQuery();
+
+            DataTable dt = new DataTable();
+            SqlDataAdapter da = new SqlDataAdapter(cmd2);
+
+            da.Fill(dt);
+
+            dataGridView1.DataSource = dt;
+            
+            bd.conexion.Close();
+            bd.conexion.Open();
+
+            SqlCommand cmd3 = bd.conexion.CreateCommand();
+            cmd3.CommandType = CommandType.Text;
+            cmd3.CommandText = "SELECT sum(nAREDECCON),sum(nAREVERCON) FROM IND_COMPRE WHERE codigo like ('" + txtcodigo.Text + "%')";
+            cmd3.ExecuteNonQuery();
+
+            SqlDataReader leer1 = cmd3.ExecuteReader();
+            while (leer1.Read() == true)
+            {
+                suma1.Text = leer1[0].ToString();
+                suma2.Text = leer1[1].ToString();
+            }
+
+            bd.conexion.Close();
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
             ModelPropietario mp = new ModelPropietario();
