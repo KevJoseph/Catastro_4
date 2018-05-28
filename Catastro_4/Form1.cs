@@ -22,39 +22,42 @@ namespace Catastro_4
             bd.conexion.Open();
             
             SqlCommand cmd = bd.conexion.CreateCommand();
-           
-
 
 
             cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT nombre, apellido, numFicha, CodCont, coopre, TipHab, NomHab, RUC, Sector, Mz, Lt FROM dbo.Propietarios WHERE codigo like ('" + txtcodigo.Text + "%')";
+            cmd.CommandText = "select cTIPOTIT, cNUMFICHA, cCODCONTRI, cNDOCTIT, cNOMTIT, cAPPATIT, cCODPRE, cTipHab, cNOMHAB, cSECTOR, cMZA, cLOTE FROM IND_FICHA WHERE cTIPOTIT=1 and cCODPRE='" + txtcodigo.Text + "' and cActivo=1";
+           
             cmd.ExecuteNonQuery();
             
             SqlDataReader leer = cmd.ExecuteReader();
 
+            MessageBox.Show(leer["cNOMTIT"].ToString());
+
             while (leer.Read() == true)
-            {
-                txtNombre.Text = leer["nombre"].ToString();
-                txtApellido.Text = leer["apellido"].ToString();
-                txtNFicha.Text = leer["numFicha"].ToString();
-                txtCodCont.Text = leer["CodCont"].ToString();
-                txtCoopre.Text = leer["coopre"].ToString();
-                txtTipHab.Text = leer["TipHab"].ToString();
-                txtNomHab.Text = leer["NomHab"].ToString();
-                txtRuc.Text = leer["RUC"].ToString();
-                txtSector.Text = leer["Sector"].ToString();
-                txtMz.Text = leer["Mz"].ToString();
-                txtLt.Text = leer["Lt"].ToString();
-                
-                
-                //dataGridView1.Rows.Add(leer[0].ToString(), leer[1].ToString());
-                
-            }
+                {
+                    txtNombre.Text = leer["cNOMTIT"].ToString();
+                    txtApellido.Text = leer["cAPPATIT"].ToString();
+                    txtNFicha.Text = leer["cNUMFICHA"].ToString();
+                    txtCodCont.Text = leer["cCODCONTRI"].ToString();
+                    txtCoopre.Text = leer["cCODPRE"].ToString();
+                    txtTipHab.Text = leer["cTipHab"].ToString();
+                    txtNomHab.Text = leer["cNOMHAB"].ToString();
+                    //txtRuc.Text = leer["RUC"].ToString();
+                    txtSector.Text = leer["cSECTOR"].ToString();
+                    txtMz.Text = leer["cMZA"].ToString();
+                    txtLt.Text = leer["cLOTE"].ToString();
+
+
+                    //dataGridView1.Rows.Add(leer[0].ToString(), leer[1].ToString());
+
+                }
+           
             bd.conexion.Close();
             bd.conexion.Open();
+
             SqlCommand cmd2 = bd.conexion.CreateCommand();
             cmd2.CommandType = CommandType.Text;
-            cmd2.CommandText = "SELECT nAREDECCON,nAREVERCON FROM dbo.Propietarios WHERE codigo like ('" + txtcodigo.Text + "%')";
+            cmd2.CommandText = "SELECT  nAREDECCON, nAREVERCON FROM  IND_CONPRE where cNUMFICHA='" + txtNFicha.Text + "'";
             cmd2.ExecuteNonQuery();
 
             DataTable dt = new DataTable();
@@ -69,7 +72,7 @@ namespace Catastro_4
 
             SqlCommand cmd3 = bd.conexion.CreateCommand();
             cmd3.CommandType = CommandType.Text;
-            cmd3.CommandText = "SELECT sum(nAREDECCON),sum(nAREVERCON) FROM IND_COMPRE WHERE codigo like ('" + txtcodigo.Text + "%')";
+            cmd3.CommandText = "select sum(nAREDECCON),sum(nAREVERCON) FROM IND_CONPRE WHERE cNUMFICHA='" + txtNFicha.Text + "'";
             cmd3.ExecuteNonQuery();
 
             SqlDataReader leer1 = cmd3.ExecuteReader();
@@ -84,8 +87,7 @@ namespace Catastro_4
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            ModelPropietario mp = new ModelPropietario();
-            mp.SelectPropietario();
+         
 
         }
 
@@ -110,6 +112,16 @@ namespace Catastro_4
         }
 
         private void txtcodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtRuc_TextChanged(object sender, EventArgs e)
         {
 
         }

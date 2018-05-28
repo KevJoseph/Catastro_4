@@ -11,8 +11,8 @@ namespace Catastro_4.Basedatos
     class BaseDatos
     {
         // coloca tus datos de tu equipo ( que va actuar como servidor)
-        private string servidor = "WIN10FALLCREATO";
-        private string data_base = "catastro_Demo";
+        private string servidor = "Informatica\\SQLEXPRESS";
+        private string data_base = "BD_CATASTRO_PUNTA_HERMOSA";
         private string cadena="";
         public SqlConnection conexion;
 
